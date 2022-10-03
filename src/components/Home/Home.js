@@ -28,17 +28,18 @@ export default function Home({ visible, setVisible, deckAndMeta, setDeckAndMeta 
         id="decks"
         onChange={(e) => setSelectValue(e.target.value)}
       >
-        <option value="">Escolha seu deck</option>
-        <option value="jsx">JSX</option>
+        <option data-identifier="deck-selector" value="">Escolha seu deck</option>
+        <option data-identifier="deck-option" value="jsx">JSX</option>
       </select>
       <input
+        data-identifier="goals-input"
         type="number"
         min="0"
         max="8"
         placeholder="Digite sua meta de zaps..."
         onChange={(e) => setInputValue(e.target.value)}
       ></input>
-      <button onClick={buttonIniciar}>Iniciar Recall!</button>
+      <button data-identifier="start-btn" onClick={buttonIniciar}>Iniciar Recall!</button>
     </HomePage>
   ) : (
     <></>
