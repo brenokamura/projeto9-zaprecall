@@ -1,0 +1,48 @@
+   .flash-cards .flash-card:first-child {
+    margin-top: 51px;
+  }
+  
+  .flash-cards .flash-card:nth-child(-n+7) {
+    margin-bottom: 25px;
+  }
+  
+  .flash-cards .flash-card:last-child {
+    margin-bottom: 95px;
+  }
+  
+  .flash-cards .flash-card-question:first-child {
+    margin-top: 46px;
+  }
+  
+  .flash-cards .flash-card-question:nth-child(-n+7) {
+    margin-bottom: 25px;
+  }
+  
+  .flash-cards .flash-card-question:last-child {
+    margin-bottom: 95px;
+  }
+  
+  
+  .flash-cards .flash-card-answer:first-child {
+    margin-top: 46px;
+  }
+  
+  .flash-cards .flash-card-answer:nth-child(-n+7) {
+    margin-bottom: 25px;
+  }
+  
+  .flash-cards .flash-card-answer:last-child {
+    margin-bottom: 95px;
+  }
+  
+  .flash-cards .flash-card-answered:first-child {
+    margin-top: 51px;
+  }
+  
+  .flash-cards .flash-card-answered:nth-child(-n+7) {
+    margin-bottom: 25px;
+  }
+  
+  .flash-cards .flash-card-answered:last-child {
+    margin-bottom: 269px;
+  }

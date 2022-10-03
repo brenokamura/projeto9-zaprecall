@@ -1,0 +1,20 @@
+body {
+    font-family: 'Recursive',sans-serif;
+    font-family: 'Righteous',
+    cursive;
+    background-color: #FB6B6B;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  .root {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  @media (min-width: 614px) {
+}
