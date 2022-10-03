@@ -47,8 +47,8 @@ export default function FlashCard(props) {
 
   if (stage === "questionsList") {
     return (
-      <div className="flash-card" data-identifier="flashcard-show-btn">
-        <p>{`Pergunta ${questionNumber}`}</p>
+      <div className="flash-card" data-identifier="flashcard">
+        <p data-identifier="flashcard-index-item">{`Pergunta ${questionNumber}`}</p>
         <ion-icon data-identifier="flashcard-show-btn"
           name="play-outline"
           onClick={() => {
@@ -75,6 +75,7 @@ export default function FlashCard(props) {
   if (stage === "answer") {
     return (
       <div className="flash-card-answer" >
+        
         <p data-identifier="flashcard-answer">{answer}</p>
         <div className="buttons-answer">
           <button className="nao-lembrei" data-identifier="forgot-btn" onClick={buttonNaoLembrei}>
