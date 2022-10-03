@@ -1,5 +1,5 @@
-import "./Footer.css";
-
+//import "./Footer.css";
+import styled from "styled-components"
 
 let numberOfQuestions = 8;
 let answers = [];
@@ -25,14 +25,14 @@ function Footer({
 
   if (contador !== numberOfQuestions) {
     return (
-      <footer>
+      <FooterContainer data-identifier="flashcard-counter">
         <p>
           {contador}/{numberOfQuestions} CONCLUÍDOS
         </p>
         <div className="icons-answer">
           {iconsAnswers.map((answer) => answer)}
         </div>
-      </footer>
+      </FooterContainer>
     );
   } else {
     for (let i = 0; i < iconsAnswers.length; i++) {
@@ -45,7 +45,7 @@ function Footer({
     if (answers.includes("nao-lembrei") === true) {
       if (meta === "") {
         return (
-          <footer className="final-msg">
+          <FooterMsg>
             <p>
               😢 <span>PUTZ!</span>
             </p>
@@ -61,12 +61,12 @@ function Footer({
             >
               REINICAR RECALL
             </button>
-          </footer>
+          </FooterMsg>
         );
       } else {
         if (contadorZap >= parseInt(meta)) {
           return (
-            <footer className="final-msg">
+            <FooterMsg>
               <p>
                 😢 <span>PUTZ!</span>
               </p>
@@ -83,11 +83,11 @@ function Footer({
               >
                 REINICAR RECALL
               </button>
-            </footer>
+            </FooterMsg>
           );
         } else {
           return (
-            <footer className="final-msg">
+            <FooterMsg>
               <p>
                 😢 <span>PUTZ!</span>
               </p>
@@ -107,14 +107,14 @@ function Footer({
               >
                 REINICAR RECALL
               </button>
-            </footer>
+            </FooterMsg>
           );
         }
       }
     } else {
       if (meta === "") {
         return (
-          <footer className="final-msg">
+          <FooterMsg>
             <p>
               🥳 <span>PARABÉNS!</span>
             </p>
@@ -130,12 +130,12 @@ function Footer({
             >
               REINICAR RECALL
             </button>
-          </footer>
+          </FooterMsg>
         );
       } else {
         if (contadorZap >= parseInt(meta)) {
           return (
-            <footer className="final-msg">
+            <FooterMsg>
               <p>
                 🥳 <span>PARABÉNS!</span>
               </p>
@@ -145,18 +145,17 @@ function Footer({
                 {iconsAnswers.map((answer) => answer)}
               </div>
               <button
-                className="reiniciar"
                 onClick={() => {
                   restartRecall();
                 }}
               >
                 REINICAR RECALL
               </button>
-            </footer>
+            </FooterMsg>
           );
         } else {
           return (
-            <footer className="final-msg">
+            <FooterMsg>
               <p>
                 🥳 <span>PARABÉNS!</span>
               </p>
@@ -173,7 +172,7 @@ function Footer({
               >
                 REINICAR RECALL
               </button>
-            </footer>
+            </FooterMsg>
           );
         }
       }
@@ -182,3 +181,91 @@ function Footer({
 }
 
 export default Footer;
+
+const FooterContainer = styled.div
+`
+    margin-top: 650px;
+    width: 100%;
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    flex-direction: column;
+    background: #FFFFFF;
+    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
+    height: 50px;
+    position: fixed;
+    bottom: 0
+  p {
+    text-align: center;
+    font-family: 'Recursive';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #333333;
+    margin-bottom: 5px;
+  }
+`
+const FooterMsg = styled.div
+`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: -210px;
+    min-height: 244px;
+    background: #FFFFFF;
+    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.15);
+    & p:first-child {
+    margin-top: 22px;
+    }
+    & span {
+    font-family: 'Recursive';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #333333;
+  }
+
+  button {
+    width: 167px;
+    min-height: 32px;
+    background: #FB6B6B;
+    border-radius: 5px;
+    font-family: 'Recursive';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    margin: 27px 0 25px;
+    border: none;
+    cursor:pointer;
+  }
+  .icons-answer #nao-lembrei {
+    color: #FF3030;
+    width: 23px;
+    height: 23px;
+  }
+
+
+  .icons-answer #zap {
+    color: #2FBE34;
+    width: 23px;
+    height: 23px;
+  }
+
+  .icons-answer #quase-lembrei {
+    color: #FF922E;
+    width: 23px;
+    height: 23px;
+  }
+
+
+}
+`

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./Cards.css";
+import styled from "styled-components"
 
 export default function FlashCard(props) {
   const {
@@ -46,9 +47,9 @@ export default function FlashCard(props) {
 
   if (stage === "questionsList") {
     return (
-      <div className="flash-card">
+      <div className="flash-card" data-identifier="flashcard-show-btn">
         <p>{`Pergunta ${questionNumber}`}</p>
-        <ion-icon
+        <ion-icon data-identifier="flashcard-show-btn"
           name="play-outline"
           onClick={() => {
             setStage("question");
@@ -61,8 +62,8 @@ export default function FlashCard(props) {
   if (stage === "question") {
     return (
       <div className="flash-card-question">
-        <p>{question}</p>
-        <img
+        <p data-identifier="flashcard-question">{question}</p>
+        <img data-identifier="flashcard-turn-btn"
           src="assets/img/setinha.png"
           alt="setinha"
           onClick={() => setStage("answer")}
@@ -73,16 +74,16 @@ export default function FlashCard(props) {
 
   if (stage === "answer") {
     return (
-      <div className="flash-card-answer">
-        <p>{answer}</p>
+      <div className="flash-card-answer" >
+        <p data-identifier="flashcard-answer">{answer}</p>
         <div className="buttons-answer">
-          <button className="nao-lembrei" onClick={buttonNaoLembrei}>
+          <button className="nao-lembrei" data-identifier="forgot-btn" onClick={buttonNaoLembrei}>
             Não lembrei
           </button>
-          <button className="quase-lembrei" onClick={buttonQuaseLembrei}>
+          <button className="quase-lembrei" data-identifier="almost-forgot-btn" onClick={buttonQuaseLembrei}>
             Quase não lembrei
           </button>
-          <button className="zap" onClick={buttonZap}>
+          <button className="zap" data-identifier="zap-btn" onClick={buttonZap}>
             Zap!
           </button>
         </div>
@@ -94,7 +95,7 @@ export default function FlashCard(props) {
     return (
       <div className="flash-card-answered nao-lembrei">
         <p>{`Pergunta ${questionNumber}`}</p>
-        <ion-icon name="close-circle"></ion-icon>
+        <ion-icon data-identifier="flashcard-status" name="close-circle"></ion-icon>
       </div>
     );
   }
@@ -103,7 +104,7 @@ export default function FlashCard(props) {
     return (
       <div className="flash-card-answered quase-lembrei">
         <p>{`Pergunta ${questionNumber}`}</p>
-        <ion-icon name="help-circle"></ion-icon>
+        <ion-icon data-identifier="flashcard-status" name="help-circle"></ion-icon>
       </div>
     );
   }
@@ -112,7 +113,7 @@ export default function FlashCard(props) {
     return (
       <div className="flash-card-answered zap">
         <p>{`Pergunta ${questionNumber}`}</p>
-        <ion-icon name="checkmark-circle"></ion-icon>
+        <ion-icon data-identifier="flashcard-status" name="checkmark-circle"></ion-icon>
       </div>
     );
   }

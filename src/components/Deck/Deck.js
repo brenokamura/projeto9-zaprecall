@@ -3,6 +3,7 @@ import FlashCard from "../Cards/Cards";
 import Footer from "../Footer/Footer";
 import { useState } from 'react';
 import "./Deck.css";
+import styled from "styled-components"
 
 const decks = {
 jsx: [
@@ -109,9 +110,9 @@ export default function Deck({deckAndMeta, setDeckAndMeta, visible, setVisible})
         <>
         <div>
             <Header />
-            <div className="flash-cards">
+            <div className="flash-cards" data-identifier="flashcard">
                 {flashcards.map((flashcard) => (
-                    <FlashCard key={flashcard.questionNumber} contador = {contador} setContador={setContador} iconsAnswers = {iconsAnswers} 
+                    <FlashCard data-identifier="flashcard-index-item" key={flashcard.questionNumber} contador = {contador} setContador={setContador} iconsAnswers = {iconsAnswers} 
                     setIconsAnswers = {setIconsAnswers} visible={visible} questionNumber= {flashcard.questionNumber} question={flashcard.question} answer={flashcard.answer}/>
                 ))}
             </div>
